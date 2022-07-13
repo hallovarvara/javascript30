@@ -1,0 +1,22 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "description": "JavaScript 30 challenge",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "keywords": [
+    "javascript",
+    "vanilla"
+  ],
+  "author": "Varya Deviaterikova <hallovarvara@gmal.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
+    "npm": "^8.13.2",
+    "prettier": "^2.7.1"
+  }
+}
