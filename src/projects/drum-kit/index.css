@@ -1,0 +1,78 @@
+:root {
+  --color-dark: #171426;
+  --color-light: #c2bbb4;
+  --color-light-s: #776758;
+  --color-primary: #e7984f;
+  --color-primary-dark: #9b5431;
+}
+
+.drum-kit-page {
+  height: 100%;
+
+  color: var(--color-light);
+  background: var(--color-dark);
+}
+
+.drum-kit-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  height: 100%;
+  padding: 6rem 0;
+}
+
+.drum-kit-description {
+  text-align: center;
+}
+
+.drum-kit-keys {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+
+.drum-kit-key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0 2rem 1rem;
+
+  cursor: pointer;
+
+  background-color: var(--color-light);
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.8rem 0 var(--color-light-s);
+
+  transition: 0.15s ease-in-out;
+  transition-property: background-color, box-shadow, margin-top;
+}
+
+.drum-kit-key:hover,
+.drum-kit-key-active {
+  background-color: var(--color-primary);
+  box-shadow: 0 0.8rem 0 var(--color-primary-dark);
+}
+
+.drum-kit-key:active,
+.drum-kit-key-active {
+  margin-top: 0.8rem;
+  box-shadow: none;
+}
+
+.drum-kit-key-name {
+  color: var(--color-dark);
+  font-size: 7rem;
+  text-transform: uppercase;
+}
+
+.drum-kit-key-sound {
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+}
