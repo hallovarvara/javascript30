@@ -1,19 +1,24 @@
 import { Node } from './components/Node.js';
-import { makePageClassname } from '../../utils/make-page-classname.js';
-import { isNode } from '../../utils/is-node.js';
-import { ACTIVE_KEY_CLASSNAME, AUDIO_SRC, KEYS_DATA } from './constants.js';
 import { Key } from './components/Key.js';
 import { Audio } from './components/Audio.js';
 
-export class DrumKit {
-  id = 'drum-kit';
+import { makePageClassname } from '../../utils/make-page-classname.js';
+import { isNode } from '../../utils/is-node.js';
 
+import {
+  ACTIVE_KEY_CLASSNAME,
+  AUDIO_SRC,
+  KEYS_DATA,
+  PROJECT_PREFIX,
+} from './constants.js';
+
+export class DrumKit {
   constructor() {
     const heading = new Node({ tag: 'h1', textContent: 'Drum Kit' });
 
     const description = new Node({
       tag: 'p',
-      className: 'drum-kit-description',
+      className: `${PROJECT_PREFIX}-description`,
       textContent:
         'Press keys listed below on your keyboard to hear some drums',
     });
@@ -29,7 +34,7 @@ export class DrumKit {
     );
 
     const keysContainer = new Node({
-      className: `${this.id}-keys`,
+      className: `${PROJECT_PREFIX}-keys`,
       children: keys,
     });
 
@@ -40,14 +45,14 @@ export class DrumKit {
 
     const main = new Node({
       tag: 'main',
-      className: `${this.id}-content`,
+      className: `${PROJECT_PREFIX}-content`,
       children: [heading, description, keysContainer, ...audioSet],
     });
 
     this.addEventListener();
 
     return new Node({
-      className: makePageClassname(this.id),
+      className: makePageClassname(PROJECT_PREFIX),
       children: [main],
       addToParent: true,
     });
@@ -67,7 +72,9 @@ export class DrumKit {
 
     this.onClick(keyCode);
 
-    const key = document.querySelector(`.drum-kit-key[data-key="${keyCode}"]`);
+    const key = document.querySelector(
+      `.${PROJECT_PREFIX}-key[data-key="${keyCode}"]`,
+    );
 
     key?.classList?.add(ACTIVE_KEY_CLASSNAME);
   };

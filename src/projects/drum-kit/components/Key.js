@@ -1,6 +1,6 @@
 import { Node } from './Node.js';
 import { isNullish } from '../../../utils/is-nullish.js';
-import { ACTIVE_KEY_CLASSNAME } from '../constants.js';
+import { ACTIVE_KEY_CLASSNAME, PROJECT_PREFIX } from '../constants.js';
 
 export class Key {
   key = null;
@@ -10,13 +10,13 @@ export class Key {
   constructor({ name, key, sound, parent, onClick }) {
     this.name = new Node({
       tag: 'kbd',
-      className: 'drum-kit-key-name',
+      className: `${PROJECT_PREFIX}-key-name`,
       textContent: name,
     });
 
     this.sound = new Node({
       tag: 'span',
-      className: 'drum-kit-key-sound',
+      className: `${PROJECT_PREFIX}-key-sound`,
       textContent: sound,
     });
 
@@ -24,7 +24,7 @@ export class Key {
       addToParent: !isNullish(parent),
       attributes: [{ key: 'data-key', value: key }],
       children: [this.name, this.sound],
-      className: 'drum-kit-key',
+      className: `${PROJECT_PREFIX}-key`,
       onClick,
       parent,
       tag: 'button',

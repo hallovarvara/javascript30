@@ -1,6 +1,8 @@
 export const AUDIO_SRC = 'projects/drum-kit/sounds/[sound].wav';
 
-export const ACTIVE_KEY_CLASSNAME = 'drum-kit-key-active';
+export const PROJECT_PREFIX = 'drum-kit';
+
+export const ACTIVE_KEY_CLASSNAME = `${PROJECT_PREFIX}-key-active`;
 
 export const KEYS_DATA = [
   {

@@ -89,8 +89,4 @@ export class Node {
       }
     });
   };
-
-  showChildren = () => {
-    console.log(this.#children);
-  };
 }
