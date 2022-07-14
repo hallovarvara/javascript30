@@ -7,6 +7,7 @@ export class Node {
   #children = [];
 
   constructor({
+    attributes,
     children,
     className,
     onClick,
@@ -28,8 +29,16 @@ export class Node {
       this.#node.textContent = textContent;
     }
 
-    if (!isNullish(src) && tag === 'img') {
+    if (!isNullish(src)) {
       this.#node.src = src;
+    }
+
+    if (!isNullish(attributes)) {
+      attributes.forEach(({ key, value }) => {
+        if (!isNullish(key) && !isNullish(value)) {
+          this.#node.setAttribute(key, value);
+        }
+      });
     }
 
     if (!isNullish(children)) {
@@ -37,7 +46,7 @@ export class Node {
     }
 
     if (!isNullish(onClick)) {
-      this.#node.onClick = onClick;
+      this.#node.onclick = onClick;
     }
 
     if (addToParent) {
