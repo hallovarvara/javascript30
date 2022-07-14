@@ -9,6 +9,5 @@ export default {
   moduleDirectories: [
     'node_modules',
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'src'),
-    'shared',
   ],
 };
